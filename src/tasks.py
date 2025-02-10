@@ -166,6 +166,7 @@ def dockerinfo(c, verbose=0):
     # "https://portaineredge.overseer.archfx.io 404"
     # "https://ecr.archfx.io 401"
 ####TODO: get docker-compose version
+    print(f"Docker Compose version: {docker.version}")
     
 @task(incrementable=['verbose'])
 def dockertest(c, verbose=0):
