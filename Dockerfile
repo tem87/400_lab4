@@ -67,7 +67,7 @@ RUN echo $GIT_VERSION_HASH > GIT_VERSION_HASH.txt
 USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
-ADD --chown=1000:1000  --chmod=+x src/zsh-in-docker.sh .
+ADD --chown=1000:1000 --chmod=0755 src/zsh-in-docker.sh .
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN ./zsh-in-docker.sh \
     -p git \
