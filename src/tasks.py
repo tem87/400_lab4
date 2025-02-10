@@ -75,6 +75,10 @@ def hello(c, name="world", verbose=0):
 @task(incrementable=['verbose'])
 def netspeed(c, verbose=0):
     """Run an internet speedtest
+    
+    Args:
+        c (_type_): _description_
+        verbose: The logging verbosity of the speedtest.
     """
 
     _set_log_level(verbose)
