@@ -4,6 +4,8 @@ import logging
 import docker
 import pyfiglet 
 import speedtest
+import psutil #newline
+
 
 
 
@@ -189,3 +191,21 @@ def dockertest(c, verbose=0):
     pprint(client.swarm.attrs)
 
     client.close()
+
+#new task
+@task(incrementable=['verbose'])
+def sysinfo(c, verbose=0):
+    """Get System Information
+    """
+    
+    _set_log_level(verbose)
+    
+    logger.debug("Getting system information...")
+    
+    print('-'*40)
+    print(f"{'CPU Usage':<20}: {psutil.cpu_percent()}%")
+    print(f"{'Memory Usage':<20}: {psutil.virtual_memory().percent}%")
+    print(f"{'Disk Usage':<20}: {psutil.disk_usage('/').percent}%")
+    print('-'*40)
+    
+    #psutil library and syntax from: https://pypi.org/project/psutil/#description
