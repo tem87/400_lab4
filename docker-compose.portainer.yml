@@ -13,4 +13,4 @@ services:
     # Set any environment variables required for your development environment.
     environment:
       - NODE_ENV=development
-      - TESTVAR=${TESTVAR:-/src}
+      - TESTVAR=${TESTVAR:/src}
