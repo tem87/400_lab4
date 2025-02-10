@@ -1,7 +1,7 @@
 services:
   app:
     container_name: myapp
-    image: ghcr.io/NaderNab/toolbox:latest
+    image: ghcr.io/nadernab/toolbox:latest
     build:
       context: .
       dockerfile: Dockerfile
