@@ -4,6 +4,7 @@ import logging
 import docker
 import pyfiglet 
 import speedtest
+import subprocess
 
 
 
@@ -189,3 +190,36 @@ def dockertest(c, verbose=0):
     pprint(client.swarm.attrs)
 
     client.close()
+
+@task(incrementable=['verbose'])
+def ping(c, host="8.8.8.8", count=4, verbose=0):
+    """
+    Get network response times by pinging a host.
+
+    Args:
+        c (_type_): Invoke context
+        host (str, optional): The target host to ping. Defaults to "8.8.8.8".
+        count (int, optional): Number of ping packets to send. Defaults to 4.
+        verbose (int, optional): Verbosity level. Defaults to 0.
+    """
+    _set_log_level(verbose)
+    logger.debug(f"Starting ping to {host} with {count} packets.")
+
+    try:
+        result = subprocess.run(
+            ["ping", "-c", str(count), host],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+
+        if result.returncode == 0:
+            logger.info(f"Ping to {host} successful.")
+            print(result.stdout)
+        else:
+            logger.error(f"Ping to {host} failed: {result.stderr.strip()}")
+            print(f"Error: {result.stderr.strip()}")
+
+    except Exception as e:
+        logger.exception(f"An error occurred while pinging {host}: {e}")
+        print(f"An error occurred: {e}")
