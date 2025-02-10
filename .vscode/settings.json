@@ -31,3 +31,35 @@
 {
     "editor.fontFamily": "'MesloLGS NF', 'Droid Sans Mono', 'monospace', monospace"
 }
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  "files.autoSave": "afterDelay",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "typescript", "json"],
+  "docker.languageserver.formatter": {
+    "ignoreMultilineInstructions": true
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.linting.enabled": true,
+  "python.formatting.provider": "black",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.inlineSuggest.enabled": true
+}
+
+{
+    "editor.fontFamily": "'MesloLGS NF', 'Droid Sans Mono', 'monospace', monospace"
+}
