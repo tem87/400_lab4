@@ -1,15 +1,19 @@
 version: '3.8'
-services:
 
-  # Building and testing environment
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: ghcr.io/growlf/toolbox:testing
-    stdin_open: true
-    tty: true
-    command: ["/bin/zsh"]
+services:
+  toolbox-app:
+    image: your-dockerhub-username/toolbox:your-branch-name
+    container_name: toolbox-app
+    restart: unless-stopped
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    network_mode: "host"
+      - ./your-local-folder:/app  # Adjust this to your local directory
+    ports:
+      - "8080:80"                # Change ports if needed
+    environment:
+      - ENV_VAR=production       # Add any environment variables
+    networks:
+      - toolbox-net
+
+networks:
+  toolbox-net:
+    driver: bridge
