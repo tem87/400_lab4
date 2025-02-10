@@ -2,3 +2,6 @@
 Basic files added.
 # Fix 11/04/2023 - G
 Grammar in readme
+
+# Added 10/02/2025
+- Created an empty `.gitignore` file as a placeholder for ignoring unnecessary files in the project.
