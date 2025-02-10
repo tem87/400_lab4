@@ -34,7 +34,12 @@
 			"installTools": true,
 			"version": "3.11"
 		},
-		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
+		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {},
+
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "18",
+			"packageManager": "npm"
+		}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -50,7 +55,7 @@
 	// "shutdownAction": "none",
 
 	// Uncomment the next line to run commands after the container is created.
-	"postCreateCommand": "cat /etc/os-release"
+	"postCreateCommand": "node -v && npm -v && cat /etc/os-release"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
