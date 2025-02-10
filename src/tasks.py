@@ -189,3 +189,38 @@ def dockertest(c, verbose=0):
     pprint(client.swarm.attrs)
 
     client.close()
+
+@task(incrementable=['verbose'])
+def netresponse(c, host="google.com", count=5, verbose=0):
+    """Measure network response time (ping)
+
+    Args:
+        c (_type_): Invoke context
+        host (str, optional): Host to ping. Defaults to "google.com".
+        count (int, optional): Number of packets to send. Defaults to 5.
+        verbose (int, optional): Logging verbosity. Defaults to 0.
+    """
+    _set_log_level(verbose)
+
+    logger.debug(f"Pinging {host} with {count} packets...")
+
+    try:
+        result = c.run(f"ping -c {count} {host}", hide=True, warn=True)
+        output_lines = result.stdout.split("\n")
+        
+        # Extract and print the average response time
+        for line in output_lines:
+            if "rtt min/avg/max/mdev" in line:
+                times = line.split("=")[1].strip().split("/")
+                print(f"{'Min Response Time':<20}: {times[0]} ms")
+                print(f"{'Avg Response Time':<20}: {times[1]} ms")
+                print(f"{'Max Response Time':<20}: {times[2]} ms")
+                return
+
+        logger.warning("No valid response time found.")
+        print("Ping test failed or no response received.")
+
+    except Exception as e:
+        logger.error(f"Network response test failed: {e}")
+        print("Error running network response test.")
+
