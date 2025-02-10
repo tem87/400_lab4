@@ -4,8 +4,10 @@ services:
   # Building and testing environment
   dev:
     build:
-      context: .
+      context: https://github.com/UsmanMahmood25/toolbox.git
       dockerfile: Dockerfile
+      args:
+        GIT_BRANCH: "group-14"
     image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-/src}
