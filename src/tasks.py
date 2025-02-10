@@ -119,6 +119,11 @@ def dockerinfo(c, verbose=0):
         raise invoke.Exit("ERROR: Docker connection failed.", e)
     info = client.info()
     plugins = client.plugins.list()
+
+    logger.info("Docker connection successful.")
+    logger.debug(info)
+    logger.debug(plugins)
+
     client.close()
 
     print('-'*40)
@@ -182,6 +187,11 @@ def dockertest(c, verbose=0):
         raise invoke.Exit("ERROR: Docker connection failed.", e)
     info = client.info()
     plugins = client.plugins.list()
+    
+    logger.info("Docker connection successful.")
+    logger.debug(info)
+    logger.debug(plugins)
+
     # print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
     client.images.pull("netyeti/toolbox:latest")
 
