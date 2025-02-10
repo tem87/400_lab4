@@ -8,7 +8,7 @@ services:
     image: alpine:latest
     stdin_open: true
     tty: true
-    command: ["/bin/zsh"]
+    command: ["/bin/sh"]
     volumes:
       - /Users/austinkim/ENSF400/toolbox
       - /var/run/docker.sock:/var/run/docker.sock
