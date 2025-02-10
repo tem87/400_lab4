@@ -1,7 +1,6 @@
 version: '3.8'
 services:
   dev:
-    container_name: portainer
     image: cr.portainer.io/portainer/portainer-ce
 
     # Map the container port to a local port.
