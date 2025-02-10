@@ -5,11 +5,11 @@ services:
     container_name: toolbox-app
     restart: unless-stopped
     volumes:
-      - ./your-local-folder:/app  # Adjust this to your local directory
+      - ./your-local-folder:/app 
     ports:
-      - "8080:80"                # Change ports if needed
+      - "8080:80"                
     environment:
-      - ENV_VAR=production       # Add any environment variables
+      - ENV_VAR=production  
     networks:
       - toolbox-net
 
