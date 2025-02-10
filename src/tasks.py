@@ -58,6 +58,8 @@ def help(c, verbose=0):
     incrementable=['verbose']
     )
 def hello(c, name="world", verbose=0):
+    logger.debug("Saying hello...")
+
     """Say hello
     
     Args:
@@ -117,9 +119,15 @@ def dockerinfo(c, verbose=0):
         client = docker.from_env()        
     except Exception as e:
         raise invoke.Exit("ERROR: Docker connection failed.", e)
+
+
     info = client.info()
     plugins = client.plugins.list()
     client.close()
+
+    logger.info("Docker connection successful.")
+    logger.debug(info)
+    logger.debug(plugins)
 
     print('-'*40)
     print(f"{'System Name':<20}: {info.get('Name')}")
@@ -182,6 +190,10 @@ def dockertest(c, verbose=0):
         raise invoke.Exit("ERROR: Docker connection failed.", e)
     info = client.info()
     plugins = client.plugins.list()
+
+    logger.info("Docker connection successful.")
+    logger.debug(info)
+    logger.debug(plugins)
     # print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
     client.images.pull("netyeti/toolbox:latest")
 
