@@ -85,9 +85,9 @@ def netspeed(c, verbose=0):
     # If you want to test against a specific server
     # servers = [1234]
 
-    threads = None
+    # threads = None
     # If you want to use a single threaded test
-    # threads = 1
+    threads = 1
 
     s = speedtest.Speedtest()
     s.get_servers(servers)
@@ -182,7 +182,7 @@ def dockertest(c, verbose=0):
         raise invoke.Exit("ERROR: Docker connection failed.", e)
     info = client.info()
     plugins = client.plugins.list()
-    # print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
+    print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
     client.images.pull("netyeti/toolbox:latest")
 
     from pprint import pprint
