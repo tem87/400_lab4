@@ -189,3 +189,24 @@ def dockertest(c, verbose=0):
     pprint(client.swarm.attrs)
 
     client.close()
+
+@task(incrementable=["verbose"])
+def diskspace(c, verbose=0):
+    """Check disk space on host system"""
+    _set_log_level(verbose)
+    
+    logger.debug("Checking disk space...")
+    
+    # Use invoke to run df command
+    result = c.run("df -h /", hide=True)
+    
+    # Parse and print the output
+    lines = result.stdout.strip().split("\n")
+    headers = lines[0].split()
+    values = lines[1].split()
+    
+    print("-" * 40)
+    for header, value in zip(headers, values):
+        print(f"{header:<15}: {value}")
+    print("-" * 40)
+
