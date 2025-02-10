@@ -27,6 +27,17 @@ You can find more at:
   - https://hub.docker.com/repository/docker/netyeti/toolbox/
   - https://ghcr.io/growlf/toolbox:latest
 
+
+## Links
+
+- https://ohmyz.sh/#install
+- https://github.com/deluan/zsh-in-docker/
+- https://github.com/romkatv/powerlevel10k
+- https://medium.com/nerd-for-tech/my-python-boilerplate-and-a-little-python-fu-e0ed59d97627
+- https://pypi.org/project/portscan/
+- https://docs.pyinvoke.org/en/stable/
+- https://docker-py.readthedocs.io/en/stable/
+
 ## Batteries included
 
 ### Custom Shell 
@@ -77,13 +88,4 @@ Some possible tasks to add-to/replace the default options:
 
 Use the `portainer-compose.yml` file and modify to your hearts content.
 
-## Notes
-
-- https://ohmyz.sh/#install
-- https://github.com/deluan/zsh-in-docker/
-- https://github.com/romkatv/powerlevel10k
-- https://medium.com/nerd-for-tech/my-python-boilerplate-and-a-little-python-fu-e0ed59d97627
-- https://pypi.org/project/portscan/
-- https://docs.pyinvoke.org/en/stable/
-- https://docker-py.readthedocs.io/en/stable/
 
