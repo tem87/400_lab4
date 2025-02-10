@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   dev:
     image: taiwu/toolbox:group_21
