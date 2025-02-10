@@ -1,5 +1,5 @@
-FROM python:3.12-slim-bullseye 
-# 3.12 is the latest version of Python as of 2021-10-20
+FROM python:3.14.0a4-slim-bullseye 
+# 3.14.0a4 is the updated version of Python as of 2025-02-10
 
 # Passed from Github Actions
 ARG GIT_VERSION_TAG=unspecified
