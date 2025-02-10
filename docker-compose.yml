@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     image: ghcr.io/growlf/toolbox:latest
     environment:
-      - TESTVAR=${TESTVAR:/src}
+      - TESTVAR=${TESTVAR:-/src}
     stdin_open: true
     tty: true
     command: ["/bin/zsh"]
@@ -23,7 +23,7 @@ services:
   app1:
     image: ghcr.io/growlf/toolbox:latest
     environment:
-      - TESTVAR=${TESTVAR:/src}
+      - TESTVAR=${TESTVAR:-/src}
     stdin_open: true
     tty: true
     command: ["/bin/zsh"]
@@ -37,7 +37,7 @@ services:
   app2:
     image: ghcr.io/growlf/toolbox:latest
     environment:
-      - TESTVAR=${TESTVAR:/src}
+      - TESTVAR=${TESTVAR:-/src}
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
