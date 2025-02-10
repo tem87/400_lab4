@@ -97,7 +97,11 @@ ADD --chown=1000:1000 --chmod=+x src/tasks.py .
 ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
 ADD --chown=1000:1000 --chmod=+x src/test_net.sh .
-ADD --chown=1000:1000 src/nodes.list .
+ADD --chown=1000:1000 src/nodes.list ....
+
+# Add the new ping_websites.sh script
+ADD --chown=1000:1000 src/ping_websites.sh /app/ping_websites.sh
+
 
 # Set default command
 CMD ["/bin/zsh"]
