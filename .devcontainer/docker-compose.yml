@@ -26,4 +26,6 @@ services:
     command: /bin/sh -c "while sleep 1000; do :; done"
  
     # Allow the dev container to use the same network as the host
-    network_mode: "host"
+    #network_mode: "host"
+    ports:
+      - "8080:8080"
