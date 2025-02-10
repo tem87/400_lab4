@@ -32,6 +32,7 @@ RUN apt-get -yq install --no-install-recommends \
         tree \
         lsof \
         fish \
+        bat exa fzf tldr \ # tools added to help for improved deployment
         && sh -c "curl -fsSL https://starship.rs/install.sh | bash -s -- --yes" \
         && apt-get clean -y \
         && rm -rf /var/lib/apt/lists/*
