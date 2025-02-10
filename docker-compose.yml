@@ -1,20 +1,44 @@
+
 services:
-  app:
-    container_name: myapp
-    image: ghcr.io/nadernab/toolbox:latest
+
+  # Building and testing environment
+  dev:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
+    image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-/src}
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
     volumes:
-      - ./app_data:/var/app_data
-    restart: unless-stopped
-    networks:
-      - mynetwork
+    - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
+    - ${HOME}/.ssh:/home/ubuntu/.ssh
+    - .:/src
+    - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
 
-networks:
-  mynetwork:
-    driver: bridge
+  # Example container with DooD and host file/net access
+  app1:
+    image: ghcr.io/growlf/toolbox:latest
+    environment:
+      - TESTVAR=${TESTVAR:-/src}
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
+    volumes:
+      - /:/host
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
+    
+    
+  # Example of running the same image with different intent
+  app2:
+    image: ghcr.io/growlf/toolbox:latest
+    environment:
+      - TESTVAR=${TESTVAR:-/src}
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
+    
