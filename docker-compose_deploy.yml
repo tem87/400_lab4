@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  dev:
+    container_name: portainer
+    image: cr.portainer.io/portainer/portainer-ce
+
+    # Map the container port to a local port.
+    ports:
+      - "8080:8080"
+
+    # Bind mount your project workspace (adjust the host path as needed).
+    volumes:
+      - workspace:/workspaces/toolbox
+
+    # Set any environment variables required for your development environment.
+    environment:
+      - NODE_ENV=development
+      - TESTVAR=${TESTVAR:/src}
+  
+  volumes:
+    workspace:
