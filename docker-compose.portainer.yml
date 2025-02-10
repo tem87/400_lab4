@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   dev:
-    image: yourdockerhubusername/toolbox:my_custom_env
+    image: taiwu/toolbox:group_21
     
     # Map the container port to a local port.
     ports:
