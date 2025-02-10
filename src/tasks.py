@@ -123,7 +123,8 @@ def dockerinfo(c, verbose=0):
 
     print('-'*40)
     print(f"{'System Name':<20}: {info.get('Name')}")
-    print(f"{'Árchetecture':<20}: {info.get('Architecture')}")
+    print(f"{'Architecture':<20}: {info.get('Architecture')}") #Changed 'Árchetecture' to 'Architecture'
+
     print(f"{'OSType':<20}: {info.get('OSType')}")
     print(f"{'Kernel Version':<20}: {info.get('KernelVersion')}")
     print(f"{'Operating System':<20}: {info.get('OperatingSystem')}")
