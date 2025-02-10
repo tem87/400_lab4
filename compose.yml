@@ -31,7 +31,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
     
-    
+     
   # Example of running the same image with different intent
   app2:
     image: ghcr.io/growlf/toolbox:latest
