@@ -10,9 +10,6 @@ services:
 
     # Bind mount your project workspace (adjust the host path as needed).
     volumes:
-      - workspace:/workspaces/toolbox
+      - ./workspace:/workspaces/toolbox
 
     # Set any environment variables required for your development environment.
-  
-  volumes:
-    workspace:
