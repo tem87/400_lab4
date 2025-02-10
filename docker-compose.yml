@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  your_service_name:
+    image: your_image_name:latest
+    container_name: your_container_name
+    volumes:
+      - ./local/path:/container/path
+    ports:
+      - "8000:8000"
+      - "9443:9443"
+      - "9000:9000"
