@@ -41,4 +41,17 @@ services:
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
+
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/growlf/toolbox:testing
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
     
