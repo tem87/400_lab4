@@ -1,14 +1,15 @@
 version: '3.8'
-
 services:
-  toolbox-app:
-    image: my-toolbox-image:latest  # Ensure the correct image name is used
-    container_name: toolbox-container
-    restart: always
-    ports:
-      - "8080:80"  # Adjust the port mapping if necessary
+
+  # Building and testing environment
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/growlf/toolbox:testing
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
     volumes:
-      - ./data:/app/data  # Adjust volume mapping for local development
-    environment:
-      - NODE_ENV=development
-      - API_URL=http://localhost:5000  # Example environment variable
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
