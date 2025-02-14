@@ -23,7 +23,7 @@ services:
   app1:
     image: ghcr.io/growlf/toolbox:latest
     environment:
-      - TESTVAR=${TESTVAR:/src}
+      - TESTVAR=$${TESTVAR:/src}
     stdin_open: true
     tty: true
     command: ["/bin/zsh"]
